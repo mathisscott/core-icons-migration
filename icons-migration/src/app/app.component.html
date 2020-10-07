@@ -2,7 +2,7 @@
   <header class="header-2">
     <div class="branding">
       <a class="nav-link">
-        <clr-icon shape="home" size="24"></clr-icon>
+        <cds-icon inverse shape="home" size="24"></cds-icon>
         <span class="title">Clarity Icons</span>
       </a>
     </div>
@@ -14,25 +14,54 @@
     <div class="content-area">
       <div class="clr-row">
         <div class="clr-col-2">
-          <clr-icon
+          <cds-icon
             class="is-solid"
             shape="success-standard"
             size="64"
-          ></clr-icon>
+          ></cds-icon>
         </div>
         <div class="clr-col-2">
-          <clr-icon shape="info-standard" size="64"></clr-icon>
+          <cds-icon shape="info-standard" size="64"></cds-icon>
         </div>
         <div class="clr-col-2">
-          <clr-icon class="is-solid" shape="image" size="64"></clr-icon>
+          <cds-icon class="is-solid" shape="image" size="64"></cds-icon>
         </div>
       </div>
       <h3>Clarity Icons Migration:</h3>
       <ul>
-        <li>Start by clicking Fork in the toolbar above.</li>
-        <li>Implement the problem in the new editor.</li>
         <li>
-          Save the result, and share the url in a GitHub or StackOverflow issue.
+          Import the Clarity Core ClarityIcons service from
+          <code class="clr-code">@clr/core/icon</code>. This service will be
+          used to add icon shapes to the library as needed.
+        </li>
+        <li>
+          Import any icon shapes from
+          <code class="clr-code">@clr/core/icon</code>. An IDE like VS Code
+          might be helpful in auto-completing the shape imports.
+        </li>
+        <li>
+          Add the imported icons to the ClarityIcons service using the
+          ClarityIcons.addIcons() method. Icons can be added at the module level
+          or component level. Adding an icon more than once to ClarityIcons will
+          not have a negative effect.
+        </li>
+        <li>
+          Import the registration file at
+          <code class="clr-code">@clr/core/icon/register</code>. This file adds
+          the cds-icon component to the browser. It's best if the file is
+          imported at the app module level but there is no harm in importing it
+          at the component level. Importing the registration file more than once
+          has no negative effect.
+        </li>
+        <li>
+          To use web components in an Angular application, the
+          <code class="clr-code">CUSTOM_ELEMENTS_SCHEMA</code> needs to be
+          defined on the application module. Import
+          <code class="clr-code">CUSTOM_ELEMENTS_SCHEMA</code> from
+          <code class="clr-code">@angular/core</code> and make sure to add
+          <code class="clr-code">CUSTOM_ELEMENTS_SCHEMA</code> to the
+          <code class="clr-code">schemas</code> array property of your
+          application's <code class="clr-code">@NgModule</code> decorator.
         </li>
       </ul>
 
@@ -45,6 +74,11 @@
           </clr-control-helper>
         </clr-date-container>
       </form>
+
+      <p>
+        Note that the icons in the datepicker above (which still uses the legacy
+        Clarity Icons package) works just fine!
+      </p>
     </div>
   </div>
 </div>
