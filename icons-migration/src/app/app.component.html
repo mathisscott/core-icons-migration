@@ -2,7 +2,7 @@
   <header class="header-2">
     <div class="branding">
       <a class="nav-link">
-        <cds-icon inverse shape="home" size="24"></cds-icon>
+        <my-icon inverse shape="home" size="24"></my-icon>
         <span class="title">Clarity Icons</span>
       </a>
     </div>
@@ -14,17 +14,17 @@
     <div class="content-area">
       <div class="clr-row">
         <div class="clr-col-2">
-          <cds-icon
+          <my-icon
             class="is-solid"
             shape="success-standard"
             size="64"
-          ></cds-icon>
+          ></my-icon>
         </div>
         <div class="clr-col-2">
-          <cds-icon shape="info-standard" size="64"></cds-icon>
+          <my-icon shape="info-standard" size="64"></my-icon>
         </div>
         <div class="clr-col-2">
-          <cds-icon class="is-solid" shape="image" size="64"></cds-icon>
+          <my-icon class="is-solid" shape="my-image" size="64"></my-icon>
         </div>
       </div>
       <h3>Clarity Icons Migration</h3>
@@ -47,12 +47,17 @@
           not have a negative effect.
         </li>
         <li>
-          Import the registration file at
-          <code class="clr-code">@clr/core/icon/register</code>. This file adds
-          the cds-icon component to the browser. It's best if the file is
-          imported at the app module level but there is no harm in importing it
-          at the component level. Importing the registration file more than once
-          has no negative effect.
+          Instead of using the registration file, the
+          <code class="clr-code">registerElementSafely()</code> function in
+          <code class="clr-code">@clr/core/internal</code> can be used to
+          register the CTS icon to any tag name you want.
+        </li>
+        <li>
+          Coupled with importing the
+          <code class="clr-code">ClarityIcons</code> service under an aliased
+          name, this approach could potentially allow an application to continue
+          using the legacy Clarity Icons library along side the Clarity Core
+          icons, giving a great degree of flexibility during migration.
         </li>
         <li>
           To use web components in an Angular application, the
